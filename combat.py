@@ -21,7 +21,18 @@ def fight(player, enemy):
 
             if enemy.health <= 0:
                 print(f"{enemy.name} was defeated!")
-                break
+
+                print("\nKeep Exploring?")
+                print("1. Yes")
+                print("2. No")
+                choice = input("> ")
+
+                if choice == "1":
+                    fight(player, enemy)
+                elif choice == "2":
+                    print(f"Farewell + {player.name}!")
+                    break
+            
 
 # Enemy Attack
             damage = enemy.attack - player.defense
