@@ -1,18 +1,45 @@
-import random       
+import random
+
 from player import Player
 from enemies import create_enemies
 from combat import fight
 
-print("\nWelcome to the Python-RPG")
 
-name = input("Enter your character's name: ")
+def main():
+    print("\nWelcome to the Python-RPG")
 
-player = Player(name)
+    name = input("Enter your character's name: ").strip()
+    if not name:
+        name = "Hero"
 
-print(f"Welcome, {player.name}!")
+    player = Player(name)
+    print(f"Welcome, {player.name}!")
 
-enemies = create_enemies()
+    enemies = create_enemies()
 
-enemy = random.choice(list(enemies.values()))
+    while player.health > 0:
+        enemy = random.choice(list(enemies.values()))
+        result = fight(player, enemy)
 
-fight(player, enemy)
+        if result == "defeated":
+            print("\nYou survived the battle!")
+        elif result == "fled":
+            print("\nYou live to fight another day.")
+        else:
+            break
+
+        print("\nWhat do you want to do next?")
+        print("1. Fight another enemy")
+        print("2. Quit")
+
+        choice = input("> ").strip()
+
+        if choice == "2":
+            print("\nThanks for playing!")
+            break
+        elif choice != "1":
+            print("Invalid choice. Starting another battle.")
+
+
+if __name__ == "__main__":
+    main()
