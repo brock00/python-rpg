@@ -11,8 +11,12 @@ player = Player(name)
 
 print(f"Welcome, {player.name}!")
 
-enemies = create_enemies()
+enemies = create_enemies() 
 
 enemy = random.choice(list(enemies.values()))
 
 fight(player, enemy)
+
+
+
+
