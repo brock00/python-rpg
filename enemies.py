@@ -6,3 +6,5 @@ def create_enemies():
         "Wolf": Enemy("Wolf", 30, 10, 2),
         "Dragon": Enemy("Dragon", 300, 35, 20)
     }
+
+   
