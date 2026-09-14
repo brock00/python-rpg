@@ -13,18 +13,11 @@ def fight(player, enemy):
        
 # Player Attack
             damage = player.attack - enemy.defense
-            damage = max(1, damage)         
 
             enemy.health -= damage                  
 
             print(f"\n{player.name} attacks {enemy.name} for {damage} damage!")
             print(f"{enemy.name} HP: {enemy.health}")
-<<<<<<< HEAD
-
-            if enemy.health <= 0:
-                print(f"{enemy.name} was defeated!")
-=======
->>>>>>> keep-exploring
             
 # Enemy Attack
             damage = enemy.attack - player.defense
