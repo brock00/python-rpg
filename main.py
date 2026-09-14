@@ -15,18 +15,20 @@ def main():
     player = Player(name)
     print(f"Welcome, {player.name}!")
 
-    enemies = create_enemies()
-
     while player.health > 0:
+        # Create a fresh enemy list so defeated enemies reset for the next battle.
+        enemies = create_enemies()
         enemy = random.choice(list(enemies.values()))
+
         result = fight(player, enemy)
+
+        if result == "game_over":
+            break
 
         if result == "defeated":
             print("\nYou survived the battle!")
         elif result == "fled":
             print("\nYou live to fight another day.")
-        else:
-            break
 
         print("\nWhat do you want to do next?")
         print("1. Fight another enemy")
